@@ -27,21 +27,6 @@
                         header: 'Bird',
                         link: [require("@/assets/bird.jpg")],
                     },
-                                        {   
-                        id: 1,
-                        header: 'Albatroz',
-                        link: [require("@/assets/albatroz.jpg")],
-                    },
-                    {   
-                        id: 2,
-                        header: 'Cat',
-                        link: [require("@/assets/cat.jpg")],
-                    },
-                     {   
-                        id: 3,
-                        header: 'Bird',
-                        link: [require("@/assets/bird.jpg")],
-                    },
                 ]
             }
         }
