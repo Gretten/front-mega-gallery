@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import api from './api';
+import apiInstance from '../api/api'
 
 Vue.use(Vuex);
 
@@ -9,7 +9,7 @@ export default new Vuex.Store({
       images: [],
   },
   getters: {
-      getImages: state => state.images
+    getImages: state => state.images
   },
   mutations: {
     setImages(state, images) {
@@ -17,10 +17,10 @@ export default new Vuex.Store({
       },
   },
   actions: {
-    fetchImages({ commit }, params = '') {
-        api.retrieve(params)
+    fetchImages({ commit }) {
+        apiInstance.retrieve()
             .then(res => {
-                commit(setImages, res.data.map(el => {
+                commit('setImages', res.data.map(el => {
                     el.key = el.id;
                     return el;
                 }))
