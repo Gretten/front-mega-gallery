@@ -1,6 +1,6 @@
 <template>
     <div class="main-container">
-        <div class="card-container" v-for="image in images" :key="image.id">
+        <div class="card-container" v-for="image in images" :key="image.key">
             <img class="card-image" :src="image.link" :alt="image.header">
             <span class="card-title">{{ image.header }}</span>
         </div>
@@ -8,27 +8,12 @@
 </template>
 
 <script>
+
     export default {
-        data() {
-            return {
-                images: [
-                    {   
-                        id: 1,
-                        header: 'Albatroz',
-                        link: [require("@/assets/albatroz.jpg")],
-                    },
-                    {   
-                        id: 2,
-                        header: 'Cat',
-                        link: [require("@/assets/cat.jpg")],
-                    },
-                     {   
-                        id: 3,
-                        header: 'Bird',
-                        link: [require("@/assets/bird.jpg")],
-                    },
-                ]
-            }
+        name: 'Main',
+        props: ['images'],
+        mounted: function() {
+            console.log(this.$props)
         }
     }
 </script>
@@ -40,6 +25,7 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+
     .card-container {
         display: flex;
         flex-direction: column;
@@ -49,9 +35,11 @@
         padding: 20px;
         border-radius: 10px;
     }
+
     .card-image {
         max-height: 350px;
     }
+
     .card-title {
         font-weight: 500;
         font-size: 25px;
@@ -59,4 +47,3 @@
         margin-bottom: 10px;
     }
 </style>
- 

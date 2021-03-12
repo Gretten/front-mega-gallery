@@ -1,15 +1,25 @@
 <template>
   <h1>Super Gallery</h1>
-  <Main />
+  <Main :images="this.getImages" />
 </template>
 
 <script>
 import Main from './views/Main/Main.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'App',
   components: {
     Main
+  },
+  computed: {
+    ...mapGetters([
+      'getImages',
+    ])
+  },
+  mounted: function() {
+    this.$store.dispatch('fetchImages')
+    console.log(this.getImages)
   }
 }
 </script>
