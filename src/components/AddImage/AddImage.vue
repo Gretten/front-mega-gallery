@@ -107,8 +107,8 @@
         border: 5px dashed #d1f8ff;
         height: 29px;
     }
-    .new-name:hover {
-        border: 5px dashed #d1f8ff;
+    .new-name:hover,
+    .new-name:focus {
         outline: none;
     }
     .new-name::placeholder {
