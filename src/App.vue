@@ -1,17 +1,27 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+      <h1>Super Gallery</h1>
+      <Main :images="this.getImages" />
   </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Main from './views/Main/Main.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Main
+  },
+  computed: {
+    ...mapGetters([
+      'getImages',
+    ])
+  },
+  mounted: function() {
+    this.$store.dispatch('fetchImages')
   }
 }
 </script>
@@ -24,5 +34,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h1 {
+  text-align: center;
 }
 </style>
