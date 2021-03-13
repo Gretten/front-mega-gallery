@@ -32,7 +32,7 @@
 </template>
 
 <script>
-    import { mapMutations } from 'vuex';
+    import { mapActions } from 'vuex'
     export default {
         data() {
             return {
@@ -43,8 +43,8 @@
             }
         },
         methods: {
-            ...mapMutations([
-                'setCurrentImage'
+            ...mapActions([
+                'updateImage'
             ]),
             clickOnDummy() {
                 this.$refs.hiddenInput.click();
@@ -64,7 +64,7 @@
                     file: this.file,
                     title: this.newCardName,
                 }
-                console.log(payload)
+                this.updateImage(payload)
             }
         }
     }

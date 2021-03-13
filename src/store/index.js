@@ -23,7 +23,6 @@ export default new Vuex.Store({
   mutations: {
     setImages(state, images) {
         state.images = images;
-        console.log(state)
       },
     setCurrentImage(state, currentImage) {
       state.currentImage = currentImage;
@@ -38,7 +37,12 @@ export default new Vuex.Store({
                     return el;
                 }))
             })
+    },
+    updateImage({ commit }, entity) {
+      apiInstance.update(entity)
+        .then(() => {
+          commit('setCurrentImage', entity);
+        })
     }
   },
-  devtools: true,
 });
